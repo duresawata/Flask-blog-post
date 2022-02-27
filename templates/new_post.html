@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>New Post</title>
+{% endblock %}
+
+{% block body %}
+<hr>
+<h1>CREATE NEW POST</h1>
+<form action="/posts" , method="POST">
+    <label for="Title">Title</label>
+    <input type="text" class="form-control" , name="title" placeholder="Enter Title">
+    <label for="content">Content</label>
+    <textarea class="form-control" , name="content" rows="4" cols="50" placeholder="Enter Detail"></textarea>
+    <label for="Author">Author</label>
+    <input type="text" class="form-control" , name="author" placeholder="Enter Author"><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<hr>
+{% endblock %}

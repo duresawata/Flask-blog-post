@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Post page</title>
+{% endblock %}
+
+{% block body %}
+<div class="contanier my-5">
+    <h3 style="display: inline;">All Posts <span class="fas fa-bell text-primary"></span> <span
+            style="font-size: 0.8em; position: absolute">{{total}}</span> </h3>
+    <a style="display: inline; float: right;" class="btn btn-success" href="/posts/new">+ New Post</a>
+</div>
+<div class="container">
+    <div style="margin-left: 10em;">
+        {% for post in posts %}
+        <h4>{{post.title}}</h4>
+        {% if post.author %}
+        <p>By: {{post.author}} on {{post.date_posted}}</p>
+        {% else %}
+        <p>By: N/A on {{post.date_posted}}</p>
+        {% endif %}
+        <p style="white-space: pre-wrap;">{{post.content}}</p>
+        <a href="/posts/edit/{{post.id}}" class="btn btn-primary">edit</a>
+        <a href="/posts/delete/{{post.id}}" class="btn btn-danger">delete</a>
+
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
